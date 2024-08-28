@@ -49,13 +49,13 @@ public class main {
      */
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> list = new ArrayList<>();
-        int size = matrix.length*matrix[0].length;
+        int size = matrix.length * matrix[0].length;
         int r = 0;
         int c = 0;
         int maxr = matrix.length;
         int maxC = matrix[0].length;
 
-        for (int i =0 ; i <size;i++){
+        for (int i = 0; i < size; i++) {
 
 
         }
@@ -63,5 +63,37 @@ public class main {
         return list;
     }
 
+    /**
+     * Pascal's Triangle
+     * Input: numRows = 5
+     * Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+     * Example 2:
+     *
+     * Input: numRows = 1
+     * Output: [[1]]
+     *
+     */
+
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> result = new ArrayList<>();
+        for (int i = 0; i<numRows; i++){
+            List<Integer> row = new ArrayList<>();
+            for(int j =0; j < i+1; j++){
+                if( j==0 || j==i){
+                    row.add(1);
+                }
+                else {
+                    row.add(result.get(i).get(j -1) + result.get(i).get(j) );
+                }
+            }
+
+            result.add(row);
+
+
+        }
+
+
+        return result;
+    }
 
 }
